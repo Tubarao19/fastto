@@ -1,0 +1,74 @@
+Claro, como entrevistador técnico, aquí tienes una lista de requisitos y una guía paso a paso 
+para desarrollar una API de to-do list utilizando FastAPI:
+
+### Requisitos de la API:
+1. **Registro de Usuario**: Los usuarios deben poder registrarse con un nombre de usuario y contraseña.
+2. **Autenticación y Autorización**: Los usuarios deben iniciar sesión para crear, ver, 
+actualizar y eliminar sus tareas. La autenticación se puede manejar mediante JWT (JSON Web Tokens).
+3. **Operaciones CRUD para Tareas**:
+   - **Crear**: Los usuarios deben poder crear nuevas tareas.
+   - **Leer**: Los usuarios deben poder obtener una lista de sus tareas.
+   - **Actualizar**: Los usuarios deben poder actualizar el estado o los detalles de una tarea.
+   - **Eliminar**: Los usuarios deben poder eliminar tareas.
+4. **Modelo de Datos**: Definir claramente el modelo de datos para las tareas, incluyendo campos 
+como título, descripción, fecha de creación, fecha de vencimiento y estado (pendiente, completada).
+5. **Validación de Datos**: Asegurar que los datos ingresados por el usuario sean válidos (p.ej., 
+campos requeridos, longitud mínima/máxima de textos, formatos de fechas).
+6. **Manejo de Errores**: Manejar adecuadamente los errores y proporcionar respuestas claras y 
+útiles en caso de fallos (p.ej., autenticación fallida, recursos no encontrados).
+7. **Documentación**: La API debe estar documentada, y FastAPI proporciona una documentación 
+automática muy útil mediante Swagger y Redoc.
+
+### Pasos para Desarrollar la API:
+
+1. **Configuración Inicial del Proyecto**:
+   - Configurar un entorno virtual.
+   - Instalar FastAPI y Uvicorn.
+   - Configurar un repositorio de código (p.ej., en GitHub).
+
+2. **Definir el Modelo de Usuario y Autenticación**:
+   - Crear un modelo de usuario utilizando Pydantic.
+   - Configurar una base de datos (p.ej., SQLite, PostgreSQL).
+   - Implementar la lógica de registro y autenticación (hash de contraseñas, generación y 
+   validación de JWT).
+
+3. **Crear el Modelo de Tarea**:
+   - Definir el modelo de tarea utilizando Pydantic.
+   - Crear una tabla de tareas en la base de datos.
+
+4. **Implementar Rutas de la API**:
+   - **Registro y Autenticación**: Crear endpoints para registrar y autenticar usuarios.
+   - **CRUD de Tareas**:
+     - **POST /tasks**: Crear una nueva tarea.
+     - **GET /tasks**: Obtener todas las tareas del usuario autenticado.
+     - **PUT /tasks/{id}**: Actualizar una tarea existente.
+     - **DELETE /tasks/{id}**: Eliminar una tarea.
+
+5. **Autorización**:
+   - Asegurarse de que solo los usuarios autenticados puedan acceder a las rutas de tareas.
+   - Implementar middleware para validar el token JWT en cada solicitud protegida.
+
+6. **Validación y Manejo de Errores**:
+   - Validar los datos de entrada en los endpoints.
+   - Implementar manejo de errores global para devolver respuestas adecuadas en caso de 
+   errores (p.ej., 400 Bad Request, 401 Unauthorized).
+
+7. **Pruebas**:
+   - Escribir pruebas unitarias y de integración para asegurarse de que la API funcione correctamente.
+   - Utilizar herramientas como pytest y HTTPX para pruebas.
+
+8. **Documentación y Despliegue**:
+   - Revisar la documentación automática generada por FastAPI (Swagger UI y Redoc).
+   - Asegurarse de que la documentación sea clara y completa.
+   - Desplegar la API en un entorno de producción (p.ej., Heroku, AWS, DigitalOcean).
+
+### Requisitos adicionales (si el tiempo lo permite):
+- **Paginación**: Implementar paginación para las listas de tareas.
+- **Filtros y Búsquedas**: Permitir filtrar y buscar tareas por título, estado o fecha de vencimiento.
+- **Notificaciones**: Enviar recordatorios o notificaciones de tareas pendientes.
+- **Internacionalización**: Soporte para múltiples idiomas en las respuestas de la API.
+
+Esta guía proporciona una estructura clara para desarrollar la API de to-do list con FastAPI. 
+
+Cumplir con estos requisitos demostrará tus habilidades en diseño, implementación y buenas 
+prácticas en el desarrollo de APIs backend.
